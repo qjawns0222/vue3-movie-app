@@ -1,0 +1,23 @@
+// // Default variable overrides//import위에서 작성되야됨
+// $primary:#FDC000;
+
+// // Required
+// @import "../../node_modules/bootstrap/scss/functions";
+
+
+// // Required
+// @import "../../node_modules/bootstrap/scss/variables";
+// @import "../../node_modules/bootstrap/scss/mixins";
+// @import "../../node_modules/bootstrap/scss/root";
+// $theme-colors: (
+//   "primary":    orange ,
+//   "secondary":  red,
+//   "success":    $success,
+//   "info":       $info,
+//   "warning":    $warning,
+//   "danger":     $danger,
+//   "light":      $light,
+//   "dark":       $dark
+// ) !default;
+
+// @import "../../node_modules/bootstrap/scss/bootstrap"
