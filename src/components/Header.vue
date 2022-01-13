@@ -17,10 +17,12 @@
                 </div>
             </div>
         </div>
+        <div class="img" @click="toabout"><img  @click="toabout" src="../assets/logo.png" alt=""></div>
     </header>
 </template>
 <script>
 import Logo from '~/components/Logo'
+
 export default {
     components:{
         Logo
@@ -41,16 +43,20 @@ export default {
                     name:'About',
                     href:'/about'
                 }
-            ]
+            ],
+            
         }
     },
     methods:{
         isMatch(path){
             if(!path) return false
             return path.test(this.$route.fullPath)
+        },
+        toabout(){
+            
+            return this.$router.push('/about')
         }
     }
-   
 }
 </script>
 <style lang="scss" scoped>
@@ -99,6 +105,21 @@ header{
 
             }
         }    
-    }   
+    }  
+    .img{
+        img{
+        height: 88px;
+        width: 88px;
+        border:6px solid red;
+        margin: 4%;
+        border-radius: 50%;
+        margin-right: 100px;
+        
+        &:hover{
+            background-color: white;
+            
+        }
+        }
+    } 
 }
 </style>
