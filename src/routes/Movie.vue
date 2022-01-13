@@ -14,11 +14,13 @@
     </div>
     
     <div v-else class="details">
+        
         <div 
         :style=" {backgroundImage: `url(${movie.Poster}`} " 
         class="poster">
         <Load v-if="imageloading" class="subload" :z-index="12" absolute />
         </div>
+        
         <div class="specs">
             <div class="title">
                 {{movie.Title}}
@@ -76,8 +78,17 @@ export default {
     },
     methods:{
         async init(){
-            await this.$loadImage(this.movie.Poster)
-            this.imageloading=false
+            const post=this.movie.Poster
+            if(!post || post==='N/A'){
+                this.imageloading=false
+            }
+            else{
+                await this.$loadImage(this.movie.Poster)
+                this.imageloading=false
+
+            }
+
+            
 
         }
 
@@ -107,7 +118,7 @@ export default {
     $radious:50px;
     
     
-    padding: 3%;
+    padding: 1%;
     display:flex;
     .skeletons{
         position:relative;
@@ -124,7 +135,6 @@ export default {
             
             width: 40%;
             height: 95%;
-            
             background-color: $colorgrey;
             border-radius: $radious;
         }
@@ -166,21 +176,31 @@ export default {
 .details{
     $colorgrey: rgba(gainsboro,0.7);
     $radious:50px;
-    $basemargin:2%;
+    $basemargin:1%;
     $bigfont:48px;
     $mediumfont:28px;
     $smallfont:18px;
-    padding: 1%;
+    
     display:flex;
     flex-wrap: nowrap;
     justify-content: center;
     width: 100%;
+    overflow: hidden;
+   
+   
+
     .poster{
+        
         flex-shrink: 0;
-        width: 30%;
-        height: 100%;
+        height: auto;
+        max-width: 25%;
+        min-width: 500px;
+        
         background-size: cover;
-        margin: $basemargin;
+        background-repeat: no-repeat;
+        
+       
+        
         .subload{
             top:35%;
             left:15%;
@@ -188,6 +208,9 @@ export default {
 
     }
     .specs{
+    width: 50%;
+    display: flex;
+    flex-flow: column;
     
     margin:$basemargin;
     
@@ -217,7 +240,7 @@ export default {
     }
     .plot{
         margin: 3% $basemargin;
-        padding: 2%;
+        padding: 4%;
         background-color:$colorgrey ;
         border-radius: $radious;
         display:flex;

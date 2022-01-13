@@ -1,5 +1,5 @@
 <template>
-    <div class="movies">
+    <RouterLink :to="`/movie/${movie.imdbID}`" class="movies">
         
         <img :src="movie.Poster" alt="" :width="300" :height="500" class="movie">
         <Loading v-if="posterloading" class="load" :zindex="5" absolute />
@@ -12,7 +12,7 @@
             </div>
             
         </div>
-    </div>
+    </RouterLink>
 </template>
 <script>
 import Loading from './Loading'
@@ -36,8 +36,18 @@ export default {
     },
     methods:{
         async init(){
-            await this.$loadImage(this.movie.Poster)
-            this.posterloading=false
+            const post=this.movie.Poster
+
+            if(!post || post==='N/A'){
+                this.posterloading=false;
+                return;
+            }
+            else{
+                await this.$loadImage(this.movie.Poster)
+                this.posterloading=false
+
+            }
+            
         }
     }
 }
