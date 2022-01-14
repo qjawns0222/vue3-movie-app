@@ -12,20 +12,16 @@
 <script>
 import Loading from'~/components/Loading'
 import Logo from'~/components/Logo'
+import { mapState} from'vuex'
 export default {
     computed:{
-        name(){
-            return this.$store.state.about.name
-        },
-        number(){
-            return this.$store.state.about.number
-        },
-        email(){
-            return this.$store.state.about.email
-        },
-        img(){
-            return this.$store.state.about.img
-        },
+        ...mapState('about',[
+
+            'number',
+            'name',
+            'email',
+            'img'
+        ]),
     },
     components:{
         Logo,

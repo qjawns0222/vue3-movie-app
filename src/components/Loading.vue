@@ -62,4 +62,12 @@ body {
     from { transform: rotate(0deg); }
     to { transform: rotate(359deg); }
 }
+@media screen and (max-width:1100px){
+.loader {
+    $small:100px;
+
+	height: $small;
+	width: $small;  
+}
+}
 </style>

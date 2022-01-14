@@ -36,5 +36,14 @@ export default {
             color: black;
         }
     }
+@media screen and (max-width:1100px){
+    .container{     
+        font-size: 48px;
+        .logo{
+            font-size: 48px;
 
+        }
+    }
+
+}
 </style>

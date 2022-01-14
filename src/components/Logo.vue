@@ -10,7 +10,7 @@
             color: #FDC000;
             display: flex;
             justify-content: flex-start;
-            font-size:38px;
+            font-size:48px;
             font-weight: bolder;
             margin: 20px;
             span{
@@ -20,5 +20,10 @@
                 color:red;
             }
         }
-
+@media screen and (max-width:1100px){
+    .logo{
+            font-size: 28px;
+        
+        }
+}
 </style>

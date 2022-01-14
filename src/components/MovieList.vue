@@ -55,5 +55,15 @@ export default {
    
     
     }
+@media screen and (max-width:1100px){
+    .inner{
 
+    font-size: 48px;
+    
+    min-height: 200px;
+    margin: 1.5%;
+   
+    
+    }
+}
 </style>

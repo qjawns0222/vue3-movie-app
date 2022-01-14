@@ -66,6 +66,7 @@
 </template>
 <script>
 import Load from'~/components/Loading'
+
 export default {
     components:{
         Load
@@ -94,6 +95,7 @@ export default {
 
     },
     computed:{
+
         movie(){
             return  this.$store.state.movie.themovie
         },
@@ -192,10 +194,10 @@ export default {
     .poster{
         
         flex-shrink: 0;
-        height: auto;
-        max-width: 25%;
-        min-width: 500px;
         
+        max-width: 100%;
+        min-width: 500px;
+        background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
         
@@ -280,5 +282,42 @@ export default {
     }
 
     }
+}
+
+@media screen and (max-width:1100px) {
+.container{
+    .details{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    .poster{
+        height: 768px;
+        width: 50%;
+    }
+    .specs>*{
+        margin: 5%;
+        display: flex;
+        justify-content: center;
+        
+       
+    }
+    .specs{
+        .rating{
+        margin: 5%;
+
+    }
+    .actors,.directors{
+        flex-direction: column;
+        align-items: center;
+        h1{
+            margin: 2%;
+        }
+    }
+    
+    }
+    
+    }
+}
 }
 </style>

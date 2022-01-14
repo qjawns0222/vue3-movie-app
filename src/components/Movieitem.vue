@@ -1,5 +1,5 @@
 <template>
-    <RouterLink :to="`/movie/${movie.imdbID}`" class="movies">
+    <RouterLink v-if="haveImg" :to="`/movie/${movie.imdbID}`" class="movies">
         
         <img :src="movie.Poster" alt="" :width="300" :height="500" class="movie">
         <Loading v-if="posterloading" class="load" :zindex="5" absolute />
@@ -19,7 +19,8 @@ import Loading from './Loading'
 export default {
     data(){
         return{
-            posterloading:true
+            posterloading:true,
+            haveImg:true
         }
     },
     components:{
@@ -39,6 +40,7 @@ export default {
             const post=this.movie.Poster
 
             if(!post || post==='N/A'){
+                this.haveImg=false
                 this.posterloading=false;
                 return;
             }
@@ -91,12 +93,14 @@ $width:500px;
         height: 50%;
     }
     .title{
-
+    
+    color:black;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 48px;
     height: 50%;
+    
     }
     }
     &:hover::after{
@@ -109,6 +113,38 @@ $width:500px;
         border:10px solid red;
         }
 }
+@media screen and (max-width:1100px){
+    $smwidth:250px;
+    .movies{
+    .movie{
+        width: $smwidth;
+        height: $smwidth*1.5;
+        z-index: 2;
+        
+        
+    }
+    .info{
 
+        height: 20%;
+        padding: 3%;
+
+        
+    .year{
+        font-size: 18px;
+        height: 10%;
+        color: white;
+        
+    }
+    .title{
+        height: 50px;
+
+    font-size: 28px;
+    }
+    }
+    &:hover::after{
+        border:5px solid red;
+        }
+}
+}
 
 </style>

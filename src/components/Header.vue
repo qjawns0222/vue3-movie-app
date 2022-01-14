@@ -120,6 +120,29 @@ header{
             
         }
         }
-    } 
+    }
+}
+@media screen and (max-width:1100px){
+    header{
+        .nav{
+            .item{
+                .nav-item{
+                font-size: 20px;
+                
+                }
+
+            }
+        }
+        .img{
+            img{
+            height: 48px;
+            width: 48px;
+            border:6px solid red;
+            
+            
+            }
+        }
+    }
+    
 }
 </style>

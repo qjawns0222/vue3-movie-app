@@ -67,16 +67,16 @@ export default {
 }
 .container{
     display: flex;
-    width:100%;
-    justify-content: center;
-    margin-right: 5000px;
+    width:95%;
+    margin: auto;
+    
     .content{
-        width: 60%;
+        width: 50%;
         font-size: 50px;
     }
     .selects{
         display:flex;
-        width: 30%;
+        width: 40%;
         .select{
         width: 100%;
         margin: 0% 2%;
@@ -92,5 +92,35 @@ export default {
         color: red;
         cursor: pointer;
     }  
+}
+@media screen and (max-width:1100px){
+    .container{
+    display: flex;
+    flex-flow: column;
+   
+    .content{
+        
+        width: 95%;
+        margin: auto;
+        font-size: 20px;
+    }
+    .selects{
+        
+        width: 100%;
+        .select{
+        width: 100%;
+        margin: 2%;
+        font-size: 20px;
+        text-align: center;
+    }
+    }
+    .apply{
+        font-size: 20px;
+        background-color: blue;
+        margin: auto;
+        width: 95%;
+    }  
+}
+
 }
 </style>
