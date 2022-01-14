@@ -1,0 +1,13 @@
+[build]
+  command = "npm run build"
+  functions = "functions" 
+  publish = "dist"
+
+# note: each of these fields are OPTIONAL
+[dev]
+  framework="#custom"
+  command = "npm run dev"
+  targetPort = 8080 
+  port = 8888 
+  publish = "dist" 
+  autoLaunch = false

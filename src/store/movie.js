@@ -66,7 +66,7 @@ export default{
                 
                 
             }
-            catch(message)
+            catch({message})
             {
                 commit('updatestate',{movies:[],message})
             }
@@ -97,27 +97,7 @@ export default{
         
     },  
 }
-function _fetchmovies(payload)
-{
-    const {title,type,number,year,page,id}=payload
-    const OMDB_API_KEY='7035c60c'
-    const url=id?`https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&i=${id}`
-                :`https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${title}&type=${type}&y=${year}&page=${page}`
-    
-    return new Promise((resolve,reject)=>{
-        axios.get(url)
-        .then(res=>{
-            if(res.data.Error)
-            {              
-                reject(res.data.Error)
-                return
-
-            }           
-            resolve(res)
-        })
-        .catch(err=>{
-            reject(err.message)
-        })
-    })
-
+async function _fetchmovies(payload){
+    console.log(payload)
+    return await axios.post('/.netlify/functions/movie',payload)   
 }
