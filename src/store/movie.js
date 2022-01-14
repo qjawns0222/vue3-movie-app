@@ -66,11 +66,17 @@ export default{
                 
                 
             }
-            catch({message})
+            catch(error)
             {
-                commit('updatestate',{movies:[],message})
+                
+                commit('updatestate',{
+                    movies:[],
+                    message:error.message
+                })
+               
             }
             finally{
+                
                 commit('updatestate',{loading:false})
             }         
         },
@@ -82,7 +88,7 @@ export default{
             try{
                 const res=await _fetchmovies(payload)
                 commit('updatestate',{themovie:res.data})
-                console.log(res)
+                
             }
             catch{
                 commit('updatestate',{themovie:{}})
@@ -98,6 +104,8 @@ export default{
     },  
 }
 async function _fetchmovies(payload){
-    console.log(payload)
-    return await axios.post('/.netlify/functions/movie',payload)   
+    
+    const res=await axios.post('/.netlify/functions/movie',payload)   
+    console.log(res)
+    return res   
 }
