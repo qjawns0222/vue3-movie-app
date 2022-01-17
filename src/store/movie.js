@@ -1,5 +1,6 @@
 import _uniqBy from "lodash/uniqBy"
 import axios from 'axios'
+import { stringify } from "postcss";
 
 const defaultmessage='영화제목을 검색해주세요';
 
@@ -66,14 +67,15 @@ export default{
                 
                 
             }
-            catch(error)
+            catch({message})
             {
+                
                 
                 commit('updatestate',{
                     movies:[],
-                    message:error.message
+                    message
                 })
-               
+
             }
             finally{
                 
@@ -106,6 +108,5 @@ export default{
 async function _fetchmovies(payload){
     
     const res=await axios.post('/.netlify/functions/movie',payload)   
-    console.log(res)
     return res   
 }

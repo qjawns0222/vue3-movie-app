@@ -13,7 +13,7 @@ exports.handler= async function(event){
         
         if(data.Error){
             return {
-                statusCode:200,
+                statusCode:400,
                 body:data.Error
             }
         }
